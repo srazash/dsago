@@ -57,7 +57,7 @@ func (q *Queue) PrintQueue() {
 		fmt.Printf("[%d: %s]", c, e.data)
 
 		if e != q.tail {
-			fmt.Printf("->")
+			fmt.Printf("<-")
 		} else {
 			fmt.Printf("\n")
 		}

@@ -16,11 +16,15 @@ func main() {
 
 	myQueue.Enqueue("Hello")
 	myQueue.Enqueue("Ben")
+	myQueue.Enqueue("how")
+	myQueue.Enqueue("are")
+	myQueue.Enqueue("you?")
 
 	fmt.Printf("Queue length is %d [h: %v t: %v]\n", myQueue.Length(), myQueue.Head(), myQueue.Tail())
 	myQueue.PrintQueue()
 
 	myQueue.Dequeue()
 	fmt.Printf("Queue length is %d [h: %v t: %v]\n", myQueue.Length(), myQueue.Head(), myQueue.Tail())
+	myQueue.PrintQueue()
 
 }
