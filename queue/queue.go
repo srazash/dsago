@@ -18,52 +18,76 @@ type Queue struct {
 
 func (q *Queue) Enqueue(s string) {
 
-	e := element{}
-	e = element{next: &e, data: s}
+	ele := element{}
+	ele = element{next: &ele, data: s}
 
 	if q.head == nil {
-		q.head, q.tail = &e, &e
+		q.head, q.tail = &ele, &ele
 	}
 
-	q.tail.next, q.tail = &e, &e
+	q.tail.next, q.tail = &ele, &ele
 
 	q.length++
 }
 
-func (q *Queue) Dequeue() {
+func (q *Queue) Dequeue() string {
 
 	if q.head == nil {
-		log.Fatal("unable to dequeue: queue head is nil")
-	} else {
-		q.head = q.head.next
-		q.length--
+		log.Fatal("unable to dequeue: queue is empty")
+		return ""
 	}
 
+	q.length--
+
+	head := q.head.data
+	q.head = q.head.next
+	return head
+
+}
+
+func (q *Queue) Peak() string {
+	return q.head.data
 }
 
 func (q *Queue) Length() int {
 	return q.length
 }
 
-func (q *Queue) Peak(e int) string {
-	return ""
-}
-
 func (q *Queue) PrintQueue() {
-	e := q.head
-	c := 0
+	ele := q.head
+	count := 0
 
-	for c < q.length {
-		fmt.Printf("[%d: %s]", c, e.data)
+	fmt.Printf("(h)")
 
-		if e != q.tail {
-			fmt.Printf("<-")
+	for count < q.length {
+		fmt.Printf("[%d: %s]", count, ele.data)
+
+		if ele != q.tail {
+			fmt.Printf("<---")
 		} else {
-			fmt.Printf("\n")
+			fmt.Printf("(t)\n")
 		}
 
-		e = e.next
-		c++
+		ele = ele.next
+		count++
+	}
+
+}
+
+func (q *Queue) ValidQueue() (bool, int, int) {
+	element := q.head
+	count := 0
+	len := q.Length()
+
+	for count < len {
+		element = element.next
+		count++
+	}
+
+	if count == len {
+		return true, count, len
+	} else {
+		return false, count, len
 	}
 
 }

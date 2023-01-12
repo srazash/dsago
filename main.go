@@ -4,15 +4,12 @@ import (
 	"fmt"
 
 	"github.com/srazash/dsago/queue"
+	"github.com/srazash/dsago/stack"
 )
 
 func main() {
 
-	str := "Hellorld!"
-	fmt.Printf("%s\n", str)
-
 	myQueue := queue.Queue{}
-	fmt.Printf("Queue length is %d [h: %v t: %v]\n", myQueue.Length(), myQueue.Head(), myQueue.Tail())
 
 	myQueue.Enqueue("Hello")
 	myQueue.Enqueue("Ben")
@@ -20,11 +17,34 @@ func main() {
 	myQueue.Enqueue("are")
 	myQueue.Enqueue("you?")
 
-	fmt.Printf("Queue length is %d [h: %v t: %v]\n", myQueue.Length(), myQueue.Head(), myQueue.Tail())
+	fmt.Printf("Queue length: %d\n", myQueue.Length())
+
 	myQueue.PrintQueue()
 
 	myQueue.Dequeue()
-	fmt.Printf("Queue length is %d [h: %v t: %v]\n", myQueue.Length(), myQueue.Head(), myQueue.Tail())
+
 	myQueue.PrintQueue()
+
+	myQueue.Enqueue("Hello")
+
+	myQueue.PrintQueue()
+
+	valid, count, len := myQueue.ValidQueue()
+
+	fmt.Printf("Is the queue valid? %t (%d:%d)", valid, count, len)
+
+	myStack := stack.Stack{}
+
+	myStack.Push("This")
+	myStack.Push("is")
+	myStack.Push("a")
+	myStack.Push("stack!")
+
+	myStack.PrintStack()
+
+	_ = myStack.Pop()
+	_ = myStack.Pop()
+
+	myStack.PrintStack()
 
 }
