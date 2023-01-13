@@ -58,43 +58,14 @@ func (st *Stack) Length() int {
 	return st.length
 }
 
-func (st *Stack) PrintStack() {
-	ele := st.head
-	count := 0
+func (st *Stack) PrintList() {
 
-	for count < st.length {
-		fmt.Printf("[%d: %s]", count, ele.data)
+	data := st.head
 
-		if ele != st.head {
-			fmt.Printf("--->")
-		} else {
-			fmt.Printf("(h)\n")
-		}
-
-		ele = ele.prev
-		count++
+	for ele := (st.length - 1); ele >= 0; ele-- {
+		fmt.Printf("[%d:%s]", ele, data.data)
+		data = data.prev
 	}
 
-}
-
-func (st *Stack) ValidStack() (bool, int, int) {
-	element := st.head
-	count := 0
-	len := st.length
-
-	for count < len {
-		element = element.prev
-		count++
-	}
-
-	if count == len {
-		return true, count, len
-	} else {
-		return false, count, len
-	}
-
-}
-
-func (st *Stack) Head() *element {
-	return st.head
+	fmt.Printf("\n")
 }
