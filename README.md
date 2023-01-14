@@ -7,4 +7,8 @@ Data Structures & Algorithms in GO
 ## Linked Lists:
 
 - [x] Queues
-- [ ] Stacks (in progress)
+- [x] Stacks
+
+## Algorithms:
+
+- [ ] QuickSort

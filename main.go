@@ -2,11 +2,16 @@ package main
 
 import (
 	"fmt"
+	"time"
 
-	"github.com/srazash/dsago/stack"
+	//"github.com/srazash/dsago/queue"
+	"github.com/srazash/dsago/quicksort"
+	//"github.com/srazash/dsago/stack"
 )
 
 func main() {
+
+	start := time.Now()
 
 	/* myQueue := queue.Queue{}
 
@@ -32,7 +37,7 @@ func main() {
 
 	fmt.Printf("Is the queue valid? %t (%d:%d)", valid, count, len) */
 
-	myStack := stack.Stack{}
+	/* myStack := stack.Stack{}
 
 	fmt.Printf("Stack length: %d\n", myStack.Length())
 
@@ -52,6 +57,16 @@ func main() {
 
 	fmt.Printf("Peak: %s\n", myStack.Peek())
 
-	myStack.PrintList()
+	myStack.PrintList() */
+
+	array := []int{7, 9, 11, 4, 1, 2, 12, 6}
+
+	fmt.Println(array)
+
+	quicksort.QuickSort(array, 0, len(array)-1)
+
+	fmt.Println(array)
+
+	fmt.Printf("runtime: %dns\n", time.Since(start).Nanoseconds())
 
 }
