@@ -67,6 +67,6 @@ func main() {
 
 	fmt.Println(array)
 
-	fmt.Printf("runtime: %dns\n", time.Since(start).Nanoseconds())
+	fmt.Printf("runtime: %.3fms\n", time.Since(start).Seconds())
 
 }

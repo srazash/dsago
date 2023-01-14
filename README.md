@@ -11,4 +11,4 @@ Data Structures & Algorithms in GO
 
 ## Algorithms:
 
-- [ ] QuickSort
+- [x] QuickSort
